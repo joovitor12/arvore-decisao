@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
 
 # declaração de colunas do csv
 columns = [
@@ -42,3 +43,19 @@ accuracy = rf.score(X_test, y_test)
 accuracy_rounded = round(accuracy, 4)
 print("Acurácia arredondada do modelo: ", accuracy_rounded * 100, "%")
 print("Acurácia exata do modelo: ", accuracy)
+
+
+# Lista de modelos
+modelos = ['Random Forest']
+
+# Lista de acurácias
+acuracias = [accuracy_rounded]
+
+# Plotar o gráfico de barras
+plt.bar(modelos, acuracias)
+plt.ylabel('Acurácia')
+plt.title('Acurácia dos Modelos')
+plt.ylim(0, 1)  # Definir limite do eixo y de 0 a 1
+
+# Exibir o gráfico
+plt.show()
